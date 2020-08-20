@@ -1,0 +1,20 @@
+{% extends 'fivedcompass/base.html' %}
+{% block content %}
+    <div class="field">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                {{ form }}
+            </fieldset>
+            <br>
+            <div>
+                <button class="button is-primary" type="submit">Sign In</button>
+            </div>
+        </form>
+        <div>
+            <small>
+                Don't have an account? <a href="{% url 'register' %}">Register</a>
+            </small>
+        </div> 
+    </div>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'fivedcompass/base.html' %}
+
+{% block content %}
+    <div class="container has-text-centered">
+        <h1 class="title">{{ quiz_name }}</h1>
+        <h2 class="subtitle">Please choose a number for each question from 1 (Strongly Disagree) to 5 (Strongly Agree)</h2>
+    </div>
+    <br>
+    <br>
+    <div class="columns is-centered">
+        <form action="save" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="quiz_name" value="{{ quiz_name }}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for question in questions %}
+                    <tr>
+                        <th>{{question}}</th>
+                        <th>
+                            <label class="radio"></label>
+                            <input type="radio" name="{{ forloop.counter }}" value="1">
+                        </th>
+                        <th>
+                            <label class="radio"></label>
+                            <input type="radio" name="{{ forloop.counter }}" value="2">
+                        </th>
+                        <th>
+                            <label class="radio"></label>
+                            <input type="radio" name="{{ forloop.counter }}" value="3">
+                        </th>
+                        <th>
+                            <label class="radio"></label>
+                            <input type="radio" name="{{ forloop.counter }}" value="4">
+                        </th>
+                        <th>
+                            <label class="radio"></label>
+                            <input type="radio" name="{{ forloop.counter }}" value="5">
+                        </th>
+                    <tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <button type="submit" class="button is-primary">Submit</button>
+        </form>
+    </div>
+
+{% endblock content %}

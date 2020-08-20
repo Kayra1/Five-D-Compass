@@ -1,0 +1,1 @@
+django_secret = '4#-e-1p#%#%luwbt!d9sm9u+wx-j9-k%v#e!0rm8qkffrwa+h6'

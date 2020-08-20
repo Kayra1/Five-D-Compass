@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css">
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>5DPC</title>
+    {% endif %}
+</head>
+<body>
+    <!-- Navbar -->
+    <section class="section">
+        <header>
+            {% if noNavbar %}   
+            {% else %}  
+                {% include 'fivedcompass/navbar.html' %}
+            {% endif %}
+        </header>
+    </section>
+
+    <!-- Messages -->
+    <section class="section">
+        {% if messages %}
+            {% for message in messages %}
+                <article class="message is-{{ message.tags }}">
+                    <div class="message-header">
+                        <p>{{ message.tags }}</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        {{ message }}
+                    </div>
+                </article>                
+            {% endfor %}
+        {% endif %}
+    </section>
+
+    <!-- Main Body -->
+    <section class="section">
+        <main role="main" class="container">
+            {% block content %}{% endblock %}
+        </main>
+    </section>
+
+    <!-- Credits -->
+    <section class="section">
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p> Designed by <a href="https://kgemalmaz.com">Kayra</a> in <strong>İzmir</strong></p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

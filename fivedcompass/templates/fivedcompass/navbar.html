@@ -1,0 +1,30 @@
+<nav class="navbar is-one-third">
+    <div class="container is-fluid">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{% url 'quiz-home' %}">Home</a>
+                <a class="navbar-item" href="{% url 'quiz-about' %}">About</a>
+            </div>
+
+            <!-- Navbar Right Side -->
+            <div class="navbar-end">
+                {% if user.is_authenticated %}
+                <div class="navbar-item">
+                    <a class="button is-light" href="{% url 'profile' %}"> {{user.username}} </a>
+                </div>
+                {% else %}
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="{% url 'register' %}">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="{% url 'signin' %}">
+                            Sign in
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

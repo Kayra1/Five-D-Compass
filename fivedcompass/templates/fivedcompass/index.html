@@ -1,0 +1,16 @@
+{% extends 'fivedcompass/base.html' %}
+
+{% block content %}
+
+
+    <div class="columns">
+        {% for quiz in quizlist %}
+            <div class="column is-one-third is-offset-one-third">
+                <a class="tile is-child box has-text-centered" href="{% url 'quiz-take' quiz_id=quiz.id %}">
+                    <h1> {{quiz.title}} </h1>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

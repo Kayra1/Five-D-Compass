@@ -1,0 +1,16 @@
+{% extends 'fivedcompass/base.html' %}
+
+{% block content %}
+
+
+    <p> Hello, {{ user_name }}. These are your results for the <strong> {{ quiz_name.title }} </strong> quiz. </p>
+    <br>
+    
+    {% for direction, vector in orientations.items %}
+        
+        <p> You are {{ vector }} far away in {{direction}} </p>
+
+    <br>
+    {% endfor %}
+    
+{% endblock content %}
